@@ -1,17 +1,17 @@
 # Documentación del Proyecto
 
 ## Introducción
-se realizó una aplicación que permita el armado de pizza perzonalizadas como tambien pizza preestablecidas.
-la aplicacion esta desarrollada en Node con el framework Nest.js en TypeScript.
+Se realizó una aplicación que permita el armado de pizza perzonalizadas como tambien pizza preestablecidas,
+la aplicación esta desarrollada en Node con el framework Nest.js en TypeScript.
 
 ## Descripción del proyecto
 para el desarrollo del proyecto se tomo en cuenta 3 escenarios:
 1. poder crear la pizza perzonalizada que pueda agregar el tipo de masa, salsa, queso y el relleno para pasar a construirla.
-2. para la pizza preestablecida solo quedaraia construirla.
+2. para la pizza preestablecida solo quedararia construirla.
 3. poder agregar una promo donde los dias martes y miercoles sean 2x1 y el dia jueves el delivery sea gratuito
 
 ## Construcción del proyecto
-para la contrucion del proyecto se utilizo el patron Builder
+para la construción del proyecto se utilizó el patron Builder
 
 Este código implementa el patrón de diseño Builder para construir pizzas personalizadas. El código está escrito en TypeScript y consta de varias clases.
 
