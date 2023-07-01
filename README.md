@@ -1,73 +1,104 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Documentación del Proyecto
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Introducción
+se realizó una aplicación que permita el armado de pizza perzonalizadas como tambien pizza preestablecidas.
+la aplicacion esta desarrollada en Node con el framework Nest.js en TypeScript.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Descripción del proyecto
+para el desarrollo del proyecto se tomo en cuenta 3 escenarios:
+1. poder crear la pizza perzonalizada que pueda agregar el tipo de masa, salsa, queso y el relleno para pasar a construirla.
+2. para la pizza preestablecida solo quedaraia construirla.
+3. poder agregar una promo donde los dias martes y miercoles sean 2x1 y el dia jueves el delivery sea gratuito
 
-## Description
+## Construcción del proyecto
+para la contrucion del proyecto se utilizo el patron Builder
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este código implementa el patrón de diseño Builder para construir pizzas personalizadas. El código está escrito en TypeScript y consta de varias clases.
 
-## Installation
+### `PizzaBuilder`
+Esta es una clase abstracta que actúa como el constructor abstracto de la pizza. Define métodos abstractos para construir diferentes partes de una pizza, como el nombre, la masa, la salsa, el relleno, el queso y la promoción. También contiene un método `getPizza()` para obtener la pizza construida.
 
-```bash
-$ npm install
-```
+### `PizzaHawaianaBuilder`
+Esta clase extiende `PizzaBuilder` y proporciona una implementación concreta para construir una pizza hawaiana y strogonoff y la perzonalizada. Cada método de construcción establece los atributos correspondientes de la pizza.
 
-## Running the app
+### `PizzaDirector`
+Esta clase se encarga de construir pizzas utilizando un `PizzaBuilder` específico. Tiene métodos para construir pizzas personalizadas o pizzas predefinidas.
 
-```bash
-# development
-$ npm run start
+### `Pizza`
+Esta clase representa una pizza y contiene atributos como el nombre, la masa, el queso, la salsa, el relleno y la promoción. También proporciona métodos para establecer y obtener los atributos de la pizza, y un método `toString()` para representar la pizza como un objeto.
 
-# watch mode
-$ npm run start:dev
+### `Promo`
+Esta clase representa una promoción y tiene un atributo para almacenar la promoción.
 
-# production mode
-$ npm run start:prod
-```
+### `PedidosController`
+Este es un controlador de API que maneja las solicitudes relacionadas con las pizzas. Contiene rutas para crear un pedido, realizar un pedido personalizado y obtener todos los pedidos.
 
-## Test
+### `PedidosService`
+Esta clase contiene la lógica de negocio para procesar los pedidos de pizza. Tiene métodos para realizar un pedido personalizado, realizar un pedido predefinido.
 
-```bash
-# unit tests
-$ npm run test
+## Otros elementos
+El código también incluye la creación de instancias de `PizzaBuilder` para las pizzas hawaiana y strogonoff, y los almacena en un arreglo `pizzas`. Además, se define un controlador de API `PedidosController` que utiliza el servicio `PedidosService` para manejar las solicitudes relacionadas con los pedidos de pizza.
 
-# e2e tests
-$ npm run test:e2e
+## Endpoints
+A continuación se presenta una lista de los endpoints disponibles en el proyecto, junto con los parámetros esperados para cada uno:
 
-# test coverage
-$ npm run test:cov
-```
+### `GET http://localhost:3000/pizza/pedido`
+Endpoint para crear un nuevo usuario.
 
-## Support
+Parámetros:
+- `nombre` (string, requerido)
+- `dia` (string, requerido)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+ejemplo:
+{
+	"nombre": "strogonoff",
+	"dia": "jueves"
+}
 
-## Stay in touch
+### `GET http://localhost:3000/pizza/pedido-perzonalizado`
+Endpoint para crear un nuevo usuario.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Parámetros:
+- `masa` (string, requerido)
+- `queso` (string, requerido)
+- `salsa` (string, requerido)
+- `relleno` (string, requerido)
+- `dia` (string, requerido)
 
-## License
+ejemplo: 
+{
+	"masa": "suave",
+	"queso": "americano",
+	"salsa": "tomate",
+	"relleno": "carne + tocino",
+	"dia": "lunes"
+}
+## Uso
+Para utilizar el proyecto, sigue los siguientes pasos:
 
-Nest is [MIT licensed](LICENSE).
+1. Ejecuta el comando `npm install` para instalar las dependencias.
+2. Ejecuta el comando `npm start` para iniciar la aplicación.
+
+## Estructura del proyecto
+La estructura del proyecto es la siguiente:
+
+src/
+└── pedidos/
+    ├── builder/
+    │   ├── pizza-builder.ts
+    │   ├── pizza-hawaiana.ts
+    │   ├── pizza-perzonalizada.ts
+    │   ├── pizza-strogonoff.ts
+    │   └── promo.ts
+    ├── director/
+    │   └── pizza-director.ts
+    ├── dto/
+    │   ├── pedido-personalizado-dto.ts
+    │   └── pedido-dto.ts
+    ├── models/
+    │   ├── pizza.model.ts
+    │   └── promo.model.ts
+    ├── data.ts
+    ├── controlador.ts
+    └── servicio.ts
+

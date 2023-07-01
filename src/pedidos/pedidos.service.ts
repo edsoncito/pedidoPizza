@@ -45,12 +45,4 @@ export class PedidosService {
       throw new BadRequestException(error.response);
     }
   }
-
-  findAll() {
-    try {
-      return pizzas;
-    } catch (error) {
-      throw new BadRequestException();
-    }
-  }
 }

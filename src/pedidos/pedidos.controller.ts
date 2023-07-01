@@ -18,9 +18,4 @@ export class PedidosController {
   ) {
     return this.pedidosService.pedidoPersonalizado(createPedidoDto);
   }
-
-  @Get()
-  findAll() {
-    return this.pedidosService.findAll();
-  }
 }
