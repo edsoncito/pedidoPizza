@@ -31,19 +31,22 @@ Esta clase representa una pizza y contiene atributos como el nombre, la masa, el
 Esta clase representa una promoción y tiene un atributo para almacenar la promoción.
 
 ### `PedidosController`
-Este es un controlador de API que maneja las solicitudes relacionadas con las pizzas. Contiene rutas para crear un pedido, realizar un pedido personalizado y obtener todos los pedidos.
+Este es un controlador de API que maneja las solicitudes relacionadas con las pizzas. Contiene rutas para crear un pedido, realizar un pedido personalizado.
 
 ### `PedidosService`
 Esta clase contiene la lógica de negocio para procesar los pedidos de pizza. Tiene métodos para realizar un pedido personalizado, realizar un pedido predefinido.
 
 ## Otros elementos
-El código también incluye la creación de instancias de `PizzaBuilder` para las pizzas hawaiana y strogonoff, y los almacena en un arreglo `pizzas`. Además, se define un controlador de API `PedidosController` que utiliza el servicio `PedidosService` para manejar las solicitudes relacionadas con los pedidos de pizza.
+Se incluye la creación de instancias de `PizzaBuilder` para las pizzas hawaiana y strogonoff, y los almacena en un arreglo `pizzas`. 
+
+## servicios
+Se define un controlador de API `PedidosController` que utiliza el servicio `PedidosService` para manejar las solicitudes relacionadas con los pedidos de pizza.
 
 ## Endpoints
 A continuación se presenta una lista de los endpoints disponibles en el proyecto, junto con los parámetros esperados para cada uno:
 
 ### `GET http://localhost:3000/pizza/pedido`
-Endpoint para crear un nuevo usuario.
+Endpoint para crear una pizza preestablecida.
 
 Parámetros:
 - `nombre` (string, requerido)
@@ -56,7 +59,7 @@ ejemplo:
 }
 
 ### `GET http://localhost:3000/pizza/pedido-perzonalizado`
-Endpoint para crear un nuevo usuario.
+Endpoint para crear una pizza personalizada.
 
 Parámetros:
 - `masa` (string, requerido)
