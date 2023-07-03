@@ -84,7 +84,7 @@ Para utilizar el proyecto, sigue los siguientes pasos:
 
 ## Estructura del proyecto
 La estructura del proyecto es la siguiente:
-
+```sh
 src/
 └── pedidos/
     ├── builder/
@@ -104,4 +104,6 @@ src/
     ├── data.ts
     ├── controlador.ts
     └── servicio.ts
+
+```
 
