@@ -48,6 +48,7 @@ A continuación se presenta una lista de los endpoints disponibles en el proyect
 ### `GET http://localhost:3000/pizza/pedido`
 Endpoint para crear una pizza preestablecida.
 
+```sh
 Parámetros:
 - `nombre` (string, requerido)
 - `dia` (string, requerido)
@@ -58,9 +59,21 @@ ejemplo:
 	"dia": "jueves"
 }
 
+Response
+
+{
+	"pizza": "strogonoff",
+	"masa": "suave",
+	"queso": "mozzarella rallado",
+	"salsa": "tomate",
+	"relleno": "champiñones + carne + Orégano",
+	"promo": "Delivery Gratis"
+}
+
+```
 ### `GET http://localhost:3000/pizza/pedido-perzonalizado`
 Endpoint para crear una pizza personalizada.
-
+```sh
 Parámetros:
 - `masa` (string, requerido)
 - `queso` (string, requerido)
@@ -76,6 +89,20 @@ ejemplo:
 	"relleno": "carne + tocino",
 	"dia": "lunes"
 }
+
+Response
+
+{
+	"pizza": "strogonoff",
+	"masa": "suave",
+	"queso": "mozzarella rallado",
+	"salsa": "tomate",
+	"relleno": "champiñones + carne + Orégano",
+	"promo": "Delivery Gratis"
+}
+
+```
+
 ## Uso
 Para utilizar el proyecto, sigue los siguientes pasos:
 
